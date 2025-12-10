@@ -1,1 +1,0 @@
-/Users/peter.wills@equipmentshare.com/code/personal/google-home/docs/CLAUDE.md
