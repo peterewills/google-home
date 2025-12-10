@@ -1,6 +1,10 @@
-# g-home
+# google-home
 
-A personal repository for writing, validating, and storing Google Home automation scripts in YAML format.
+A personal repository for writing, validating, and storing Google Home automation
+scripts in YAML format.
+
+Note that some functionality is limited since I am operating on the iOS app and not on
+Android.
 
 **Script Editor**: https://home.google.com/automations
 
@@ -19,6 +23,20 @@ Google Home allows creating automations via a web-based script editor at https:/
 3. Copy the script into the [Google Home web editor](https://home.google.com/automations)
 4. Use the Validate button to check for errors
 5. Save the automation
+
+### Updating Scripts
+
+To update an existing automation:
+
+1. Open the [automations UI](https://home.google.com/automations)
+2. Select the script to edit (or create a new one)
+3. **Delete the entire existing contents** of the script
+4. Paste in the new YAML
+5. Check for validation errors—these must be resolved before saving
+6. Review any warnings—these are common and generally acceptable to ignore
+7. Save the automation
+8. Refresh the Google Home iOS app
+9. Test the automation from the iOS app
 
 ## Project Structure
 
