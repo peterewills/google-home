@@ -1,0 +1,59 @@
+metadata:
+  name: Daytime
+  description: Set up the home environment for daytime.
+
+automations:
+  - starters:
+      - type: assistant.event.OkGoogle
+        eventData: query
+        is: Daytime lighting please
+      - type: assistant.event.OkGoogle
+        eventData: query
+        is: Daytime lights please
+      - type: time.schedule
+        at: sunrise+1hour
+      - type: home.state.HomePresence
+        state: homePresenceMode
+        is: HOME
+    condition:
+      type: time.between
+      after: sunrise+59min
+      before: sunset-1hour
+    actions:
+      # Turn off evening/night lights
+      - type: device.command.OnOff
+        devices:
+          - Bedroom Paper Lamp - Bedroom
+          - Zendo Lamp - Front Room
+          - Johns Hopkins Lamp - Living Room
+          - Kitchen Lamp - Kitchen
+          - Front Porch Lights - Front door
+        on: false
+
+      # Reading Lamp - 100% brightness with color
+      - type: device.command.BrightnessAbsolute
+        devices: Reading Lamp - Front Room
+        brightness: 100
+      - type: device.command.ColorAbsolute
+        devices: Reading Lamp - Front Room
+        color:
+          temperature: 2700K
+
+      # Dining Table Light - 100% brightness with color
+      - type: device.command.BrightnessAbsolute
+        devices: Dining Table Light - Living Room
+        brightness: 100
+      - type: device.command.ColorAbsolute
+        devices: Dining Table Light - Living Room
+        color:
+          temperature: 2700K
+
+      # Front Room thermostat - 70°F
+      - type: device.command.ThermostatTemperatureSetpoint
+        devices: Front Room - Front Room
+        thermostatTemperatureSetpoint: 70F
+
+      # Turn on bedroom space heater
+      - type: device.command.OnOff
+        devices: Bedroom Space Heater - Bedroom
+        on: true

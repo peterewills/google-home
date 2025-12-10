@@ -1,0 +1,31 @@
+metadata:
+  name: Leaving
+  description: Set up the home environment when leaving.
+
+automations:
+  - starters:
+      - type: home.state.HomePresence
+        state: homePresenceMode
+        is: AWAY
+    actions:
+      # Turn off all lights and space heater
+      - type: device.command.OnOff
+        devices:
+          - Bedroom Paper Lamp - Bedroom
+          - Zendo Lamp - Front Room
+          - Johns Hopkins Lamp - Living Room
+          - Living Room Paper Lamp - Living Room
+          - Cat Painting Gallery Light - Living Room
+          - Relax Sign - Living Room
+          - Reading Lamp - Front Room
+          - Dining Table Light - Living Room
+          - Kitchen Lamp - Kitchen
+          - Front Porch Lights - Front door
+          - Bedroom Space Heater - Bedroom
+        on: false
+
+      # Set thermostat to 62°F
+      - type: device.command.ThermostatTemperatureSetpoint
+        devices: Front Room - Front Room
+        thermostatTemperatureSetpoint: 62F
+

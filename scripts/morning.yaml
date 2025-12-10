@@ -1,0 +1,54 @@
+metadata:
+  name: Morning
+  description: Set up the home environment for morning.
+
+automations:
+  - starters:
+      - type: assistant.event.OkGoogle
+        eventData: query
+        is: Morning lights please
+      - type: home.state.HomePresence
+        state: homePresenceMode
+        is: HOME
+    condition:
+      type: time.between
+      after: 3:59 am
+      before: sunrise+1hour
+    actions:
+      # Turn on lights
+      - type: device.command.OnOff
+        devices:
+          - Reading Lamp - Front Room
+          - Front Porch Lights - Front door
+          - Cat Painting Gallery Light - Living Room
+          - Johns Hopkins Lamp - Living Room
+          - Living Room Paper Lamp - Living Room
+        on: true
+
+      # Turn off lights
+      - type: device.command.OnOff
+        devices:
+          - Zendo Lamp - Front Room
+          - Relax Sign - Living Room
+          - Bedroom Paper Lamp - Bedroom
+        on: false
+
+      # Dining Table Light - 24% brightness
+      - type: device.command.BrightnessAbsolute
+        devices: Dining Table Light - Living Room
+        brightness: 24
+
+      # Kitchen Lamp - 25% brightness
+      - type: device.command.BrightnessAbsolute
+        devices: Kitchen Lamp - Kitchen
+        brightness: 25
+
+      # Front Room thermostat - 66°F
+      - type: device.command.ThermostatTemperatureSetpoint
+        devices: Front Room - Front Room
+        thermostatTemperatureSetpoint: 66F
+
+      # Turn on bedroom space heater
+      - type: device.command.OnOff
+        devices: Bedroom Space Heater - Bedroom
+        on: true

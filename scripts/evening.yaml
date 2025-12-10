@@ -1,0 +1,61 @@
+metadata:
+  name: Evening
+  description: Set up the home environment for evening time.
+
+automations:
+  - starters:
+      - type: assistant.event.OkGoogle
+        eventData: query
+        is: Evening lights please
+      - type: assistant.event.OkGoogle
+        eventData: query
+        is: Evening lighting please
+      - type: time.schedule
+        at: sunset-1hour
+      - type: home.state.HomePresence
+        state: homePresenceMode
+        is: HOME
+    condition:
+      type: time.between
+      after: sunset-61min
+      before: 10:00 pm
+    actions:
+      # Simple on/off lights
+      - type: device.command.OnOff
+        devices:
+          - Bedroom Paper Lamp - Bedroom
+          - Zendo Lamp - Front Room
+          - Johns Hopkins Lamp - Living Room
+          - Living Room Paper Lamp - Living Room
+          - Cat Painting Gallery Light - Living Room
+          - Relax Sign - Living Room
+          - Front Porch Lights - Front door
+        on: true
+
+      # Reading Lamp - 100% brightness with color
+      - type: device.command.BrightnessAbsolute
+        devices: Reading Lamp - Front Room
+        brightness: 100
+      - type: device.command.ColorAbsolute
+        devices: Reading Lamp - Front Room
+        color:
+          temperature: 2700K
+
+      # Dining Table Light - 100% brightness with color
+      - type: device.command.BrightnessAbsolute
+        devices: Dining Table Light - Living Room
+        brightness: 100
+      - type: device.command.ColorAbsolute
+        devices: Dining Table Light - Living Room
+        color:
+          temperature: 2700K
+
+      # Kitchen Lamp - 26% brightness
+      - type: device.command.BrightnessAbsolute
+        devices: Kitchen Lamp - Kitchen
+        brightness: 26
+
+      # Turn off bedroom space heater
+      - type: device.command.OnOff
+        devices: Bedroom Space Heater - Bedroom
+        on: false
