@@ -58,7 +58,7 @@ g-home/
 The home is configured with four time-based environments that automatically transition throughout the day:
 
 ```
-         4am          sunrise+1hr        sunset-1hr         10pm           4am
+         4am          sunrise         sunset-1hr           8pm            4am
           |               |                  |                |             |
  ─────────┼───────────────┼──────────────────┼────────────────┼─────────────┼─────
           │   MORNING     │     DAYTIME      │    EVENING     │  NIGHTTIME  │
@@ -69,10 +69,10 @@ The home is configured with four time-based environments that automatically tran
 
 | Environment | Condition Window | Trigger Time |
 |-------------|------------------|--------------|
-| Morning | 3:59 am → sunrise+1hour | Voice only |
-| Daytime | sunrise+59min → sunset-1hour | sunrise+1hour |
-| Evening | sunset-61min → 10:00 pm | sunset-1hour |
-| Nighttime | 9:59 pm → 4:00 am | 10:00 pm |
+| Morning | 4:00 am → sunrise | Voice only |
+| Daytime | sunrise → sunset-1hour | sunrise+1hour |
+| Evening | sunset-1hour → 8:00 pm | sunset-1hour |
+| Nighttime | 8:00 pm → 4:00 am | 10:00 pm |
 
 ### Automatic Triggers
 
@@ -97,6 +97,28 @@ When presence changes to AWAY (any time), the **Leaving** automation:
 | `evening.yaml` | Ambient evening lighting |
 | `nighttime.yaml` | Dim night lighting, lower thermostat |
 | `leaving.yaml` | Away mode when leaving home |
+
+### Device States by Environment
+
+| Device | Morning | Daytime | Evening | Nighttime |
+|--------|---------|---------|---------|-----------|
+| **Living Room** |
+| Cat Painting Gallery Light | on | on | on | off |
+| Relax Sign | off | on | on | off |
+| Dining Table Light | 24% | 100% | 100% | off |
+| Living Room Paper Lamp | on | on | on | off |
+| Johns Hopkins Lamp | on | off | on | on |
+| **Bedroom** |
+| Bedroom Space Heater | on | on | off | off |
+| Bedroom Paper Lamp | off | off | on | off |
+| **Front Room** |
+| Front Room (thermostat) | 66°F | 70°F | 70°F | 62°F |
+| Zendo Lamp | off | off | on | off |
+| Reading Lamp | on | 100% | 100% | off |
+| **Front door** |
+| Front Porch Lights | on | off | on | off |
+| **Kitchen** |
+| Kitchen Lamp | 25% | off | 25% | 5% |
 
 ## Google Home Automation API Status (2025)
 

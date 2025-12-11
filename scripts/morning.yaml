@@ -11,9 +11,14 @@ automations:
         state: homePresenceMode
         is: HOME
     condition:
-      type: time.between
-      after: 3:59 am
-      before: sunrise+1hour
+      type: and
+      conditions:
+        - type: time.between
+          after: 4:00 am
+          before: sunrise
+        - type: home.state.HomePresence
+          state: homePresenceMode
+          is: HOME
     actions:
       # Turn on lights
       - type: device.command.OnOff

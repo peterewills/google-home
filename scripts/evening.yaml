@@ -16,9 +16,14 @@ automations:
         state: homePresenceMode
         is: HOME
     condition:
-      type: time.between
-      after: sunset-61min
-      before: 10:00 pm
+      type: and
+      conditions:
+        - type: time.between
+          after: sunset-1hour
+          before: 8:00 pm
+        - type: home.state.HomePresence
+          state: homePresenceMode
+          is: HOME
     actions:
       # Simple on/off lights
       - type: device.command.OnOff
@@ -50,10 +55,15 @@ automations:
         color:
           temperature: 2700K
 
-      # Kitchen Lamp - 26% brightness
+      # Kitchen Lamp - 25% brightness
       - type: device.command.BrightnessAbsolute
         devices: Kitchen Lamp - Kitchen
-        brightness: 26
+        brightness: 25
+
+      # Front Room thermostat - 70°F
+      - type: device.command.ThermostatTemperatureSetpoint
+        devices: Front Room - Front Room
+        thermostatTemperatureSetpoint: 70F
 
       # Turn off bedroom space heater
       - type: device.command.OnOff

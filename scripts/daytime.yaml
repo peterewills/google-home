@@ -16,9 +16,14 @@ automations:
         state: homePresenceMode
         is: HOME
     condition:
-      type: time.between
-      after: sunrise+59min
-      before: sunset-1hour
+      type: and
+      conditions:
+        - type: time.between
+          after: sunrise
+          before: sunset-1hour
+        - type: home.state.HomePresence
+          state: homePresenceMode
+          is: HOME
     actions:
       # Turn off evening/night lights
       - type: device.command.OnOff
@@ -29,6 +34,14 @@ automations:
           - Kitchen Lamp - Kitchen
           - Front Porch Lights - Front door
         on: false
+
+      # Turn on daytime lights
+      - type: device.command.OnOff
+        devices:
+          - Relax Sign - Living Room
+          - Cat Painting Gallery Light - Living Room
+          - Living Room Paper Lamp - Living Room
+        on: true
 
       # Reading Lamp - 100% brightness with color
       - type: device.command.BrightnessAbsolute
