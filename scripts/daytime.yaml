@@ -39,27 +39,27 @@ automations:
       - type: device.command.OnOff
         devices:
           - Relax Sign - Living Room
-          - Cat Painting Gallery Light - Living Room
+          - Gallery Lights - Living Room
           - Living Room Paper Lamp - Living Room
         on: true
 
-      # Reading Lamp - 100% brightness with color
+      # Reading Lamp - 100% brightness with bright color
       - type: device.command.BrightnessAbsolute
         devices: Reading Lamp - Front Room
         brightness: 100
       - type: device.command.ColorAbsolute
         devices: Reading Lamp - Front Room
         color:
-          temperature: 2700K
+          temperature: 5000K
 
-      # Dining Table Light - 100% brightness with color
+      # Dining Table Light - 100% brightness with bright color
       - type: device.command.BrightnessAbsolute
         devices: Dining Table Light - Living Room
         brightness: 100
       - type: device.command.ColorAbsolute
         devices: Dining Table Light - Living Room
         color:
-          temperature: 2700K
+          temperature: 5000K
 
       # Front Room thermostat - 70°F
       - type: device.command.ThermostatTemperatureSetpoint

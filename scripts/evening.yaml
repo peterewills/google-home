@@ -32,7 +32,7 @@ automations:
           - Zendo Lamp - Front Room
           - Johns Hopkins Lamp - Living Room
           - Living Room Paper Lamp - Living Room
-          - Cat Painting Gallery Light - Living Room
+          - Gallery Lights - Living Room
           - Relax Sign - Living Room
           - Front Porch Lights - Front door
         on: true
@@ -46,10 +46,10 @@ automations:
         color:
           temperature: 2700K
 
-      # Dining Table Light - 100% brightness with color
+      # Dining Table Light - 25% brightness with warm color
       - type: device.command.BrightnessAbsolute
         devices: Dining Table Light - Living Room
-        brightness: 100
+        brightness: 25
       - type: device.command.ColorAbsolute
         devices: Dining Table Light - Living Room
         color:

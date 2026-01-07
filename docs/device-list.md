@@ -5,7 +5,7 @@ necessary to update the list.
 
 ## Living Room
 
-- Cat Painting Gallery Light - Living Room
+- Gallery Lights - Living Room
 - Relax Sign - Living Room
 - Dining Table Light - Living Room
 - Living Room Paper Lamp - Living Room

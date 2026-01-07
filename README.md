@@ -103,9 +103,9 @@ When presence changes to AWAY (any time), the **Leaving** automation:
 | Device | Morning | Daytime | Evening | Nighttime |
 |--------|---------|---------|---------|-----------|
 | **Living Room** |
-| Cat Painting Gallery Light | on | on | on | off |
+| Gallery Lights | off | on | on | off |
 | Relax Sign | off | on | on | off |
-| Dining Table Light | 24% | 100% | 100% | off |
+| Dining Table Light | 25% | 100% | 25% | off |
 | Living Room Paper Lamp | on | on | on | off |
 | Johns Hopkins Lamp | on | off | on | on |
 | **Bedroom** |
@@ -113,8 +113,8 @@ When presence changes to AWAY (any time), the **Leaving** automation:
 | Bedroom Paper Lamp | off | off | on | off |
 | **Front Room** |
 | Front Room (thermostat) | 66°F | 70°F | 70°F | 62°F |
-| Zendo Lamp | off | off | on | off |
-| Reading Lamp | on | 100% | 100% | off |
+| Zendo Lamp | on | off | on | off |
+| Reading Lamp | off | 100% | 100% | off |
 | **Front door** |
 | Front Porch Lights | on | off | on | off |
 | **Kitchen** |
@@ -122,17 +122,12 @@ When presence changes to AWAY (any time), the **Leaving** automation:
 
 ## Google Home Automation API Status (2025)
 
-As of early 2025, Google offers Home APIs in public developer beta that include an Automation API. However, this API is **not suitable for managing YAML-based scripts**:
-
-| Aspect | Web Script Editor | Home APIs |
-|--------|-------------------|-----------|
-| Format | YAML | Kotlin DSL |
-| Platform | Web browser | Android app (iOS coming) |
-| Target users | End users | App developers |
-| Programmatic access | No | Yes |
-| User limit | None | 100 during beta |
-
-**Bottom line**: There is no API to programmatically upload or validate the YAML scripts used by the web editor. The Home APIs use a completely different format (Kotlin DSL) and are designed for developers building consumer apps, not for personal automation management.
+As of early 2025, Google offers Home APIs in public developer beta that include an
+Automation API. However, this API is **not suitable for managing YAML-based scripts**.
+**Bottom line**: There is no API to programmatically upload or validate the YAML scripts
+used by the web editor. The Home APIs use a completely different format (Kotlin DSL) and
+are designed for developers building consumer apps, not for personal automation
+management.
 
 ### Resources
 
