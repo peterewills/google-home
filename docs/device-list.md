@@ -17,7 +17,6 @@ necessary to update the list.
 
 ## Bedroom
 
-- Bedroom Space Heater - Bedroom
 - Bedroom Speaker - Bedroom
 - Bedroom Window Unit - Bedroom
 - Bedroom Paper Lamp - Bedroom

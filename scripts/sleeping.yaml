@@ -1,26 +1,12 @@
 metadata:
-  name: Nighttime
-  description: Set up the home environment for nighttime.
+  name: Sleeping
+  description: Set up the home environment for sleeping.
 
 automations:
   - starters:
       - type: assistant.event.OkGoogle
         eventData: query
-        is: Night lights please
-      - type: time.schedule
-        at: 10:00 pm
-      - type: home.state.HomePresence
-        state: homePresenceMode
-        is: HOME
-    condition:
-      type: and
-      conditions:
-        - type: time.between
-          after: 8:00 pm
-          before: 4:00 am
-        - type: home.state.HomePresence
-          state: homePresenceMode
-          is: HOME
+        is: Activate bedtime
     actions:
       # Johns Hopkins Lamp stays on
       - type: device.command.OnOff
@@ -49,8 +35,3 @@ automations:
       - type: device.command.ThermostatTemperatureSetpoint
         devices: Front Room - Front Room
         thermostatTemperatureSetpoint: 62F
-
-      # Turn off bedroom space heater
-      - type: device.command.OnOff
-        devices: Bedroom Space Heater - Bedroom
-        on: false

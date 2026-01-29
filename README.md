@@ -58,50 +58,50 @@ g-home/
 The home is configured with four time-based environments that automatically transition throughout the day:
 
 ```
-         4am          sunrise         sunset-1hr           8pm            4am
-          |               |                  |                |             |
- ─────────┼───────────────┼──────────────────┼────────────────┼─────────────┼─────
-          │   MORNING     │     DAYTIME      │    EVENING     │  NIGHTTIME  │
-          │               │                  │                │             │
+                     sunrise         sunset-1hr           8pm
+                         |                  |                |
+ ────────────────────────┼──────────────────┼────────────────┼────────────────────
+       LATE-NIGHT        │     DAYTIME      │    EVENING     │    LATE-NIGHT
+    (8pm → sunrise)      │                  │                │   (8pm → sunrise)
 ```
 
 ### Time-Based Environments
 
-| Environment | Condition Window | Trigger Time |
-|-------------|------------------|--------------|
-| Morning | 4:00 am → sunrise | Voice only |
-| Daytime | sunrise → sunset-1hour | sunrise+1hour |
-| Evening | sunset-1hour → 8:00 pm | sunset-1hour |
-| Nighttime | 8:00 pm → 4:00 am | 10:00 pm |
+| Environment | Condition Window | Trigger |
+|-------------|------------------|---------|
+| Late-night | 8:00 pm → sunrise | Arriving home, voice |
+| Daytime | sunrise → sunset-1hour | sunrise+1hour, arriving home, voice |
+| Evening | sunset-1hour → 8:00 pm | sunset-1hour, arriving home, voice |
+| Sleeping | (none) | Voice only |
 
 ### Automatic Triggers
 
-Each environment activates in three ways:
+Each environment activates via:
 
-1. **Scheduled time**: Triggers at the start of its time window (except Morning)
-2. **Arriving home**: Triggers when presence changes to HOME within the time window
-3. **Voice command**: Manual activation via Google Assistant
+1. **Scheduled time**: Daytime and Evening trigger at the start of their time windows
+2. **Arriving home**: Late-night, Daytime, and Evening trigger when presence changes to HOME within their time window
+3. **Voice command**: All environments can be manually activated via Google Assistant
 
 ### Leaving Home
 
 When presence changes to AWAY (any time), the **Leaving** automation:
-- Turns off all lights and space heater
+- Turns off all lights
 - Sets thermostat to away temperature (62°F)
 
 ### Scripts
 
 | Script | Description |
 |--------|-------------|
-| `morning.yaml` | Early morning lighting and climate |
+| `late-night.yaml` | Late night lighting and climate (8pm-sunrise) |
 | `daytime.yaml` | Daytime settings with work lighting |
 | `evening.yaml` | Ambient evening lighting |
-| `nighttime.yaml` | Dim night lighting, lower thermostat |
+| `sleeping.yaml` | Dim sleeping lighting, lower thermostat (voice only) |
 | `leaving.yaml` | Away mode when leaving home |
 
 ### Device States by Environment
 
-| Device | Morning | Daytime | Evening | Nighttime |
-|--------|---------|---------|---------|-----------|
+| Device | Late-night | Daytime | Evening | Sleeping |
+|--------|------------|---------|---------|----------|
 | **Living Room** |
 | Gallery Lights | off | on | on | off |
 | Relax Sign | off | on | on | off |
@@ -109,7 +109,6 @@ When presence changes to AWAY (any time), the **Leaving** automation:
 | Living Room Paper Lamp | on | on | on | off |
 | Johns Hopkins Lamp | on | off | on | on |
 | **Bedroom** |
-| Bedroom Space Heater | on | on | off | off |
 | Bedroom Paper Lamp | off | off | on | off |
 | **Front Room** |
 | Front Room (thermostat) | 66°F | 70°F | 70°F | 62°F |

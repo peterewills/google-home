@@ -64,8 +64,3 @@ automations:
       - type: device.command.ThermostatTemperatureSetpoint
         devices: Front Room - Front Room
         thermostatTemperatureSetpoint: 70F
-
-      # Turn off bedroom space heater
-      - type: device.command.OnOff
-        devices: Bedroom Space Heater - Bedroom
-        on: false

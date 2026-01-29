@@ -8,7 +8,7 @@ automations:
         state: homePresenceMode
         is: AWAY
     actions:
-      # Turn off all lights and space heater
+      # Turn off all lights
       - type: device.command.OnOff
         devices:
           - Bedroom Paper Lamp - Bedroom
@@ -21,7 +21,6 @@ automations:
           - Dining Table Light - Living Room
           - Kitchen Lamp - Kitchen
           - Front Porch Lights - Front door
-          - Bedroom Space Heater - Bedroom
         on: false
 
       # Set thermostat to 62°F

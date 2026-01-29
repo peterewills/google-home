@@ -1,12 +1,12 @@
 metadata:
-  name: Morning
-  description: Set up the home environment for morning.
+  name: Late-night
+  description: Set up the home environment for late night.
 
 automations:
   - starters:
       - type: assistant.event.OkGoogle
         eventData: query
-        is: Morning lights please
+        is: Activate morning
       - type: home.state.HomePresence
         state: homePresenceMode
         is: HOME
@@ -14,7 +14,7 @@ automations:
       type: and
       conditions:
         - type: time.between
-          after: 4:00 am
+          after: 8:00 pm
           before: sunrise
         - type: home.state.HomePresence
           state: homePresenceMode
@@ -56,8 +56,3 @@ automations:
       - type: device.command.ThermostatTemperatureSetpoint
         devices: Front Room - Front Room
         thermostatTemperatureSetpoint: 66F
-
-      # Turn on bedroom space heater
-      - type: device.command.OnOff
-        devices: Bedroom Space Heater - Bedroom
-        on: true
