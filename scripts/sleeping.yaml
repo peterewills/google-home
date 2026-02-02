@@ -6,17 +6,21 @@ automations:
   - starters:
       - type: assistant.event.OkGoogle
         eventData: query
+        is: Activate sleeping
+      - type: assistant.event.OkGoogle
+        eventData: query
         is: Activate bedtime
     actions:
-      # Johns Hopkins Lamp stays on
+      # Keep some lights on
       - type: device.command.OnOff
-        devices: Johns Hopkins Lamp - Living Room
+        devices:
+          - Johns Hopkins Lamp - Living Room
+          - Zendo Lamp - Front Room
         on: true
 
       # Turn off most lights
       - type: device.command.OnOff
         devices:
-          - Zendo Lamp - Front Room
           - Living Room Paper Lamp - Living Room
           - Gallery Lights - Living Room
           - Relax Sign - Living Room

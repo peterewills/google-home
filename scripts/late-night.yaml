@@ -6,6 +6,9 @@ automations:
   - starters:
       - type: assistant.event.OkGoogle
         eventData: query
+        is: Activate late-night
+      - type: assistant.event.OkGoogle
+        eventData: query
         is: Activate morning
       - type: home.state.HomePresence
         state: homePresenceMode

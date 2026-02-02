@@ -6,10 +6,7 @@ automations:
   - starters:
       - type: assistant.event.OkGoogle
         eventData: query
-        is: Daytime lighting please
-      - type: assistant.event.OkGoogle
-        eventData: query
-        is: Daytime lights please
+        is: Activate daytime
       - type: time.schedule
         at: sunrise+1hour
       - type: home.state.HomePresence

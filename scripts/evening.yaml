@@ -6,10 +6,7 @@ automations:
   - starters:
       - type: assistant.event.OkGoogle
         eventData: query
-        is: Evening lights please
-      - type: assistant.event.OkGoogle
-        eventData: query
-        is: Evening lighting please
+        is: Activate evening
       - type: time.schedule
         at: sunset-1hour
       - type: home.state.HomePresence
