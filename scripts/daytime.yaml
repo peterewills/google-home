@@ -58,7 +58,7 @@ automations:
         color:
           temperature: 5000K
 
-      # Front Room thermostat - 70°F
+      # Front Room thermostat - 68°F
       - type: device.command.ThermostatTemperatureSetpoint
         devices: Front Room - Front Room
-        thermostatTemperatureSetpoint: 70F
+        thermostatTemperatureSetpoint: 68F

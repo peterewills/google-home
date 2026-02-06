@@ -23,8 +23,8 @@ automations:
           - Front Porch Lights - Front door
         on: false
 
-      # Set thermostat to 62°F
+      # Set thermostat to 60°F
       - type: device.command.ThermostatTemperatureSetpoint
         devices: Front Room - Front Room
-        thermostatTemperatureSetpoint: 62F
+        thermostatTemperatureSetpoint: 60F
 

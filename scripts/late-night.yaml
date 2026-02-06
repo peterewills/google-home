@@ -55,7 +55,7 @@ automations:
         devices: Kitchen Lamp - Kitchen
         brightness: 25
 
-      # Front Room thermostat - 66°F
+      # Front Room thermostat - 68°F
       - type: device.command.ThermostatTemperatureSetpoint
         devices: Front Room - Front Room
-        thermostatTemperatureSetpoint: 66F
+        thermostatTemperatureSetpoint: 68F
