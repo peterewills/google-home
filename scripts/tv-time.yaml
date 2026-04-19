@@ -1,18 +1,12 @@
 metadata:
-  name: Sleeping
-  description: Set up the home environment for sleeping.
+  name: TV Time
+  description: Dim the living room and front room for TV watching.
 
 automations:
   - starters:
       - type: assistant.event.OkGoogle
         eventData: query
-        is: Activate sleeping
-      - type: assistant.event.OkGoogle
-        eventData: query
-        is: Activate bedtime
-      - type: assistant.event.OkGoogle
-        eventData: query
-        is: Deactivate starship energy
+        is: It's TV time
     actions:
       # Keep some lights on
       - type: device.command.OnOff
@@ -27,18 +21,11 @@ automations:
           - Living Room Paper Lamp - Living Room
           - Gallery Lights - Living Room
           - Relax Sign - Living Room
-          - Bedroom Paper Lamp - Bedroom
           - Reading Lamp - Front Room
           - Dining Table Light - Living Room
-          - Front Porch Lights - Front door
         on: false
 
       # Kitchen Lamp - 5% brightness
       - type: device.command.BrightnessAbsolute
         devices: Kitchen Lamp - Kitchen
         brightness: 5
-
-      # Front Room thermostat - 62°F
-      - type: device.command.ThermostatTemperatureSetpoint
-        devices: Front Room - Front Room
-        thermostatTemperatureSetpoint: 62F

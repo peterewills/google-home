@@ -16,7 +16,7 @@ automations:
       type: and
       conditions:
         - type: time.between
-          after: sunrise
+          after: sunrise+1hour
           before: sunset-1hour
         - type: home.state.HomePresence
           state: homePresenceMode

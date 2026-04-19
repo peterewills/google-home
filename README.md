@@ -58,19 +58,19 @@ g-home/
 The home is configured with four time-based environments that automatically transition throughout the day:
 
 ```
-                     sunrise         sunset-1hr           8pm
+                   sunrise+1hr       sunset-1hr           8pm
                          |                  |                |
  ────────────────────────┼──────────────────┼────────────────┼────────────────────
        LATE-NIGHT        │     DAYTIME      │    EVENING     │    LATE-NIGHT
-    (8pm → sunrise)      │                  │                │   (8pm → sunrise)
+  (8pm → sunrise+1hr)    │                  │                │  (8pm → sunrise+1hr)
 ```
 
 ### Time-Based Environments
 
 | Environment | Condition Window | Trigger |
 |-------------|------------------|---------|
-| Late-night | 8:00 pm → sunrise | Arriving home, voice |
-| Daytime | sunrise → sunset-1hour | sunrise+1hour, arriving home, voice |
+| Late-night | 8:00 pm → sunrise+1hour | Arriving home, voice |
+| Daytime | sunrise+1hour → sunset-1hour | sunrise+1hour, arriving home, voice |
 | Evening | sunset-1hour → 8:00 pm | sunset-1hour, arriving home, voice |
 | Sleeping | (none) | Voice only |
 
@@ -96,6 +96,7 @@ When presence changes to AWAY (any time), the **Leaving** automation:
 | `daytime.yaml` | Daytime settings with work lighting |
 | `evening.yaml` | Ambient evening lighting |
 | `sleeping.yaml` | Dim sleeping lighting, lower thermostat (voice only) |
+| `tv-time.yaml` | Dim living room/front room for TV watching (voice only) |
 | `leaving.yaml` | Away mode when leaving home |
 
 ### Device States by Environment
